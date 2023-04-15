@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <main>
+        <div class="py-5 bg-light">
+            <div class="container">
+                <div class="py-5 text-center">
+                    <h1 class="fw-bold"> Edit {{ article.title }}</h1>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <h1 class="text-center mb-5">Edit Article</h1>
+
+                        {{ form_start(articleForm) }}
+                        
+                        <div class="form-group">
+                            {{ form_label(articleForm.title, null, { 'label_attr': {'class': 'form-control-label'} }) }}
+                            {{ form_widget(articleForm.title, { 'attr': {'class': 'form-control', 'placeholder': 'Enter Title'} }) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(articleForm.image, null, { 'label_attr': {'class': 'form-control-label'} }) }}
+                            {{ form_widget(articleForm.image, { 'attr': {'class': 'form-control', 'placeholder': 'Enter Image URL'} }) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(articleForm.text, null, { 'label_attr': {'class': 'form-control-label'} }) }}
+                            {{ form_widget(articleForm.text, { 'attr': {'class': 'form-control', 'rows': '8', 'placeholder': 'Enter Text'} }) }}
+                        </div>
+
+                        {{ form_widget(articleForm.submit, { 'attr': {'class': 'btn btn-primary btn-block mt-4'} }) }}
+
+                        {{ form_end(articleForm) }}
+
+                        <br>
+                        <a href="{{ path('home') }}" type="button" class="btn btn-secondary btn-block mt-4'">Back</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+{% endblock %}
